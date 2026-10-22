@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { estilos } from '../styles/estilos';
-import CardSucesso from '../components/CardSucesso';
+import { useState } from "react";
+import { estilos } from "../styles/estilos";
+import CardSucesso from "../components/CardSucesso";
 
 export default function Home() {
-  const [posicaoNao, setPosicaoNao] = useState({ top: '50%', left: '60%' });
+  const [posicaoNao, setPosicaoNao] = useState({ top: "50%", left: "60%" });
   const [aceitou, setAceitou] = useState(false);
   const [foiMover, setFoiMover] = useState(false);
 
   const moverBotaoNao = () => {
     setFoiMover(true);
-    
+
     // Sorteia posições mantendo o botão dentro do limite visível da tela
-    const novoTop = Math.floor(Math.random() * 70 + 10) + '%';
-    const novoLeft = Math.floor(Math.random() * 70 + 10) + '%';
+    const novoTop = Math.floor(Math.random() * 70 + 10) + "%";
+    const novoLeft = Math.floor(Math.random() * 70 + 10) + "%";
 
     setPosicaoNao({ top: novoTop, left: novoLeft });
   };
@@ -27,12 +27,13 @@ export default function Home() {
       {!aceitou ? (
         <div style={estilos.card}>
           <h1 style={estilos.titulo}>
-            Promete que não vai se apaixonar por mim depois de ver essa página? 😉
+            Promete que não vai se apaixonar por mim depois de ver essa página?
+            😉
           </h1>
-          
+
           <p style={estilos.subtitulo}>
-            {foiMover 
-              ? "O botão 'Não' está fugindo... acho que é um sinal! 😂" 
+            {foiMover
+              ? "O botão 'Não' está fugindo... acho que é um sinal! 😂"
               : "Pense bem antes de responder..."}
           </p>
 
@@ -46,10 +47,10 @@ export default function Home() {
             <button
               style={{
                 ...estilos.botaoNao,
-                position: foiMover ? 'fixed' : 'relative',
-                top: foiMover ? posicaoNao.top : 'auto',
-                left: foiMover ? posicaoNao.left : 'auto',
-                transition: 'all 0.2s ease',
+                position: foiMover ? "fixed" : "relative",
+                top: foiMover ? posicaoNao.top : "auto",
+                left: foiMover ? posicaoNao.left : "auto",
+                transition: "all 0.2s ease",
               }}
               onMouseEnter={moverBotaoNao}
               onTouchStart={moverBotaoNao}
